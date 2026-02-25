@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="text-center p-5 rounded mb-5"
+     style="background: linear-gradient(rgba(5,46,22,0.85), rgba(6,95,70,0.85)),
+     url('https://images.unsplash.com/photo-1606788075761-96a3f8a8b6f7') center/cover;">
+
+    <h1 class="fw-bold display-5 text-white">
+        Premium Agro Exports Worldwide
+    </h1>
+
+    <p class="lead mt-3 text-light">
+        Delivering Excellence with Global Quality Standards
+    </p>
+
+    <a href="#categories" class="btn btn-success btn-lg mt-3">
+        Explore Products
+    </a>
+</div>
+
+<!-- ABOUT SECTION -->
+<div class="mb-5">
+    <h2 class="text-success fw-bold text-center mb-4">About Our Company</h2>
+    <p class="text-center">
+        We are a leading exporter of premium Indian agricultural products.
+        With strong quality control, modern processing facilities,
+        and global supply chain management, we deliver excellence
+        to international markets.
+    </p>
+</div>
+
+<!-- PRODUCT CATEGORIES -->
+<div id="categories" class="mb-5">
+    <h2 class="text-success fw-bold text-center mb-4">
+        Our Product Categories
+    </h2>
+
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm h-100 text-center p-3">
+                <div class="card-body">
+                    <h5 class="text-success fw-bold">
+                        {{ category[1] }}
+                    </h5>
+                    <p class="text-muted">
+                        {{ category[2] }}
+                    </p>
+                    <a href="/category/{{ category[0] }}"
+                       class="btn btn-outline-success">
+                        View Products
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="mb-5">
+    <h2 class="text-success fw-bold text-center mb-4">
+        Our Certifications
+    </h2>
+
+    <div class="row text-center">
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6>ISO 9001:2015</h6>
+                <small>Quality Management Certified</small>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6>HACCP</h6>
+                <small>Food Safety Certified</small>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6>APEDA</h6>
+                <small>Registered Exporter</small>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="card shadow p-3">
+                <h6>FSSAI</h6>
+                <small>Food License Approved</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr class="my-5">
+
+<h2 class="text-success fw-bold text-center mb-4">
+    Global Export Presence
+</h2>
+
+<div class="row text-center">
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>UAE</h6>
+            <small>Middle East</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>Saudi Arabia</h6>
+            <small>Middle East</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>United Kingdom</h6>
+            <small>Europe</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>Germany</h6>
+            <small>Europe</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>Malaysia</h6>
+            <small>Asia</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>Singapore</h6>
+            <small>Asia</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>South Africa</h6>
+            <small>Africa</small>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-6 mb-4">
+        <div class="card shadow-sm p-3">
+            <h6>Canada</h6>
+            <small>North America</small>
+        </div>
+    </div>
+
+</div>
+
+<!-- CALL TO ACTION -->
+<div class="bg-light text-center p-5 rounded">
+    <h3 class="text-success fw-bold">
+        Looking for Reliable Agro Suppliers?
+    </h3>
+    <p>
+        Contact us today to discuss your bulk import requirements.
+    </p>
+    <a href="{{ url_for('contact') }}" class="btn btn-success btn-lg">
+    Contact Us
+    </a>
+</div>
+
+{% endblock %}

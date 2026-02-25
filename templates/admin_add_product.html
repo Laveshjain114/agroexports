@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-success mb-4">Add New Product</h2>
+
+<form method="POST" enctype="multipart/form-data" class="card shadow p-4">
+
+    <!-- Basic Info -->
+    <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select name="category_id" class="form-control" required>
+            {% for category in categories %}
+            <option value="{{ category[0] }}">{{ category[1] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>Description</label>
+        <textarea name="description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label>General Packaging Info</label>
+        <input type="text" name="packaging" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label>Minimum Order Quantity</label>
+        <input type="text" name="moq" class="form-control">
+    </div>
+
+    <!-- Specifications -->
+    <div class="card p-3 mb-4">
+        <h5 class="text-success">Technical Specifications</h5>
+
+        <div id="specifications">
+            <div class="row mb-2">
+                <div class="col">
+                    <input type="text" name="spec_name[]" class="form-control"
+                           placeholder="Specification Name">
+                </div>
+                <div class="col">
+                    <input type="text" name="spec_value[]" class="form-control"
+                           placeholder="Specification Value">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-sm btn-outline-success"
+                onclick="addSpecRow()">Add Specification</button>
+    </div>
+
+    <!-- Packaging Table -->
+    <div class="card p-3 mb-4">
+        <h5 class="text-success">Packaging & Container Capacity</h5>
+
+        <div id="packagingRows">
+            <div class="row mb-2">
+                <div class="col">
+                    <input type="text" name="pack_type[]" class="form-control"
+                           placeholder="Packaging Type (e.g. PP Bag)">
+                </div>
+                <div class="col">
+                    <input type="text" name="weight[]" class="form-control"
+                           placeholder="Weight (e.g. 25kg)">
+                </div>
+                <div class="col">
+                    <input type="text" name="container20[]" class="form-control"
+                           placeholder="20ft Capacity">
+                </div>
+                <div class="col">
+                    <input type="text" name="container40[]" class="form-control"
+                           placeholder="40ft Capacity">
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-sm btn-outline-success"
+                onclick="addPackagingRow()">Add Packaging Row</button>
+    </div>
+
+    <!-- Multiple Images -->
+    <div class="mb-3">
+        <label>Product Images (Multiple Allowed)</label>
+        <input type="file" name="images" multiple class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        Add Product
+    </button>
+
+</form>
+
+<!-- JavaScript -->
+<script>
+function addSpecRow() {
+    const container = document.getElementById('specifications');
+    const row = `
+    <div class="row mb-2">
+        <div class="col">
+            <input type="text" name="spec_name[]" class="form-control"
+                   placeholder="Specification Name">
+        </div>
+        <div class="col">
+            <input type="text" name="spec_value[]" class="form-control"
+                   placeholder="Specification Value">
+        </div>
+    </div>`;
+    container.insertAdjacentHTML('beforeend', row);
+}
+
+function addPackagingRow() {
+    const container = document.getElementById('packagingRows');
+    const row = `
+    <div class="row mb-2">
+        <div class="col">
+            <input type="text" name="pack_type[]" class="form-control"
+                   placeholder="Packaging Type">
+        </div>
+        <div class="col">
+            <input type="text" name="weight[]" class="form-control"
+                   placeholder="Weight">
+        </div>
+        <div class="col">
+            <input type="text" name="container20[]" class="form-control"
+                   placeholder="20ft Capacity">
+        </div>
+        <div class="col">
+            <input type="text" name="container40[]" class="form-control"
+                   placeholder="40ft Capacity">
+        </div>
+    </div>`;
+    container.insertAdjacentHTML('beforeend', row);
+}
+</script>
+
+{% endblock %}

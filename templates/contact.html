@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <!-- Title -->
+    <div class="text-center mb-5">
+        <h2 class="text-success fw-bold">Contact Us</h2>
+        <p class="text-muted">We’d love to hear from you</p>
+        <hr>
+    </div>
+
+    <div class="row">
+
+        <!-- Contact Form -->
+        <div class="col-md-6">
+            <form method="POST" class="card shadow p-4">
+
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label>Subject</label>
+                    <input type="text" name="subject" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label>Message</label>
+                    <textarea name="message" class="form-control" rows="4" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success w-100">
+                    Send Message
+                </button>
+
+            </form>
+        </div>
+
+        <!-- Company Info -->
+        <div class="col-md-6">
+
+            <div class="mb-4">
+                <h5 class="text-success">Company Information</h5>
+                <p><strong>Address:</strong> Indore, Madhya Pradesh, India</p>
+                <p><strong>Email:</strong> info@agroexport.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+            </div>
+
+            <!-- Google Map -->
+            <div class="shadow rounded">
+                <iframe 
+                    src="https://www.google.com/maps?q=Indore,India&output=embed"
+                    width="100%" height="300" style="border:0;"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

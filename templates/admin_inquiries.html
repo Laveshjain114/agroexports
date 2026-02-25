@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>All Buyer Inquiries</h1>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Product ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Quantity</th>
+        <th>Message</th>
+        <th>Date</th>
+    </tr>
+
+    {% for inquiry in inquiries %}
+    <tr>
+        <td>{{ inquiry[0] }}</td>
+        <td>{{ inquiry[1] }}</td>
+        <td>{{ inquiry[2] }}</td>
+        <td>{{ inquiry[3] }}</td>
+        <td>{{ inquiry[4] }}</td>
+        <td>{{ inquiry[5] }}</td>
+        <td>{{ inquiry[6] }}</td>
+        <td>{{ inquiry[7] }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}

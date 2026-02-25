@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="text-success mb-4">Our Products</h2>
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+
+            {% if product[7] %}
+            <img src="{{ url_for('static', filename='uploads/' + product[7]) }}"
+                 class="card-img-top"
+                 style="height:220px; object-fit:cover;">
+            {% endif %}
+
+            <div class="card-body">
+                <h5 class="card-title text-success">
+                    {{ product[2] }}
+                </h5>
+                <p class="card-text">
+                    {{ product[3][:120] }}...
+                </p>
+
+                <a href="/product/{{ product[0] }}" 
+                   class="btn btn-outline-success">
+                   View Details
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
