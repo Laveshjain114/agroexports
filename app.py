@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, g
 from werkzeug.security import check_password_hash
-import psycopg2
+import psycopg
 import os
 
 app = Flask(__name__)
@@ -18,7 +18,7 @@ def get_db():
         if not database_url:
             raise Exception("DATABASE_URL not set")
 
-        g.db = psycopg2.connect(database_url)
+        g.db = psycopg.connect(database_url)
 
     return g.db
 
