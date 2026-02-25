@@ -289,5 +289,8 @@ def delete_product(product_id):
 
 # ----------------------------
 
-if __name__ == '__main__':
-    app.run(debug=True)
+with app.app_context():
+    try:
+        init_db()
+    except Exception as e:
+        print("DB init error:", e)
