@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, session
-from flask_mysqldb import MySQL
 from werkzeug.security import check_password_hash
 from werkzeug.utils import secure_filename
 from config import Config
@@ -10,7 +9,7 @@ app.config.from_object(Config)
 app.secret_key = 'supersecretkey'
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-mysql = MySQL(app)
+
 
 # ----------------------------
 # PUBLIC ROUTES
